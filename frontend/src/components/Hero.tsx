@@ -3,8 +3,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-const TELEGRAM_BOT_URL = 'https://t.me/aiteam_bot';
-
 export default function Hero() {
   const [reducedMotion, setReducedMotion] = useState(false);
 
@@ -43,6 +41,8 @@ export default function Hero() {
       transition: { duration: reducedMotion ? 0 : 0.6, ease: 'easeOut' },
     },
   };
+
+  const telegramUrl = process.env.NEXT_PUBLIC_TELEGRAM_BOT_URL || 'https://t.me/aiteam_bot';
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-dark">
@@ -86,7 +86,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <a
-            href={TELEGRAM_BOT_URL}
+            href={telegramUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-primary/90 text-text-white font-semibold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-primary/50 text-center"
